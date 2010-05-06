@@ -8,12 +8,16 @@ Source: ruby-enterprise-%{version}-%{release}.tar.gz
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-%(%{__id_u} -n)
 
+Patch0: net_http_socket_close.patch
+
 %description
 Ruby Enterprise Edition is a copy-on-right friendly version of ruby that also
 includes several performance patches.
 
 %prep
 %setup -q -n ruby-enterprise-%{version}-%{release}/source
+
+%patch0 -p0
 
 %build
 ./configure --prefix=/opt/ruby
