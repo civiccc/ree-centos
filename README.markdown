@@ -30,9 +30,10 @@ Perform the following on a build box as root.
     # the QA_RPATHS var tells the builder to ignore file path errors
     QA_RPATHS=$[ 0x0002 ] rpmbuild -ba SPECS/ruby-enterprise.spec
 
-The resulting RPM will be:
+The resulting RPMs (one for REE, one for REE's Rubygems) will be:
 
-    ~/rpmbuild/RPMS/x86_64/ruby-enterprise-1.8.7-2001.01.x86_64.rpm
+    ~/rpmbuild/RPMS/x86_64/ruby-enterprise-1.8.7-2.x86_64.rpm
+    ~/rpmbuild/RPMS/x86_64/ruby-enterprise-rubygems-1.3.5-2.x86_64.rpm
 
 ## Credits
 
