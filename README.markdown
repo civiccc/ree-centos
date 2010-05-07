@@ -10,6 +10,7 @@ Perform the following on a build box as root.
 ## Install Prerequisites for RPM Creation
 
     yum groupinstall 'Development Tools'
+    yum install readline-devel ncurses-devel gdbm-devel db4-devel
 
 ## Download REE
 
@@ -26,7 +27,8 @@ Perform the following on a build box as root.
 ## Build the RPM
 
     cd ~/rpmbuild/
-    rpmbuild -ba SPECS/ruby-enterprise.spec
+    # the QA_RPATHS var tells the builder to ignore file path errors
+    QA_RPATHS=$[ 0x0002 ] rpmbuild -ba SPECS/ruby-enterprise.spec
 
 The resulting RPM will be:
 
@@ -34,6 +36,7 @@ The resulting RPM will be:
 
 ## Credits
 
-Based on the `ruby-enterprise.spec` file from Tim Harper found on [a Gist][gs].
+Based on the `ruby-enterprise.spec` file from Adam Vollrath, found
+on [GitHub as a Gist][gs].
 
- [gs]: http://gist.github.com/35409
+ [gs]: http://gist.github.com/108940

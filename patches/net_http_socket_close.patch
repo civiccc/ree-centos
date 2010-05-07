@@ -1,7 +1,7 @@
-Index: lib/net/http.rb
+Index: source/lib/net/http.rb
 ===================================================================
---- lib/net/http.rb     (revision 26550)
-+++ lib/net/http.rb     (working copy)
+--- source/lib/net/http.rb     (revision 26550)
++++ source/lib/net/http.rb     (working copy)
 @@ -1057,7 +1057,7 @@
        res
      rescue => exception
