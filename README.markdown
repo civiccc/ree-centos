@@ -21,7 +21,6 @@ Perform the following on a build box as root.
 ## Get Necessary System-specific Configs
 
     git clone git://github.com/causes/ree-centos.git
-    cp ree-centos/patches/* ~/rpmbuild/SOURCES/
     cp ree-centos/spec/ruby-enterprise.spec ~/rpmbuild/SPECS/
 
 ## Build the RPM

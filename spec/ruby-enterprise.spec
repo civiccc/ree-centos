@@ -1,5 +1,5 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	2010.01
+%define phusion_release	2011.03
 %define ree_prefix /opt/ruby
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
@@ -18,8 +18,6 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n
 BuildRequires: readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel autoconf gcc unzip openssl-devel db4-devel byacc
 BuildRequires: ruby
 
-Patch0: net_http_socket_close.patch
-
 %description
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:
 * A copy-on-write friendly garbage collector. Phusion Passenger uses this, in combination with a technique called preforking, to reduce Ruby on Rails applications' memory usage by 33% on average.
@@ -29,8 +27,6 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %prep
 %setup -q -n ruby-enterprise-%{version}-%{phusion_release}
-
-%patch0 -p0
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
@@ -67,23 +63,25 @@ rm -rf $RPM_BUILD_ROOT
 
 # rubygems
 %exclude %{ree_prefix}/bin/gem
-%exclude %{ree_prefix}/lib/ruby/gems
 %exclude %{ree_prefix}/lib/ruby/site_ruby/1.8/rubygems*
 %exclude %{ree_prefix}/lib/ruby/site_ruby/1.8/ubygems.rb
 %exclude %{ree_prefix}/lib/ruby/site_ruby/1.8/rbconfig
 
 %files rubygems
 %{ree_prefix}/bin/gem
-%{ree_prefix}/lib/ruby/gems
 %{ree_prefix}/lib/ruby/site_ruby/1.8/rubygems*
 %{ree_prefix}/lib/ruby/site_ruby/1.8/ubygems.rb
 %{ree_prefix}/lib/ruby/site_ruby/1.8/rbconfig
 %doc rubygems/LICENSE.txt
-%doc rubygems/README
 %doc rubygems/GPL.txt
 %doc rubygems/ChangeLog
 
 %changelog
+* Mon Apr 18 2011 Arnoud Vermeer <avermeer at squareup dot com>
+- Updated for release 2011.03
+- Updated up the cleanup in %doc %exclude %files
+- Removed the patch
+
 * Fri May 07 2010 Brad Fults <brad at causes dot com>
 - Updated for release 2010.01
 - Changed default destination to /opt/ruby via ree_prefix variable
