@@ -1,6 +1,6 @@
 # Package Maintainer: Increment phusion_release to match latest release available
 %define phusion_release	2011.03
-%define ree_prefix /opt/ruby
+%define ree_prefix /usr/local
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
