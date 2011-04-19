@@ -7,7 +7,7 @@ Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.7
-Release: 2%{?dist}
+Release: 2011.03%{?dist}
 License: GPL
 Group: Development/Languages
 URL: http://www.rubyenterpriseedition.com/
@@ -30,7 +30,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
-Version: 1.3.5
+Version: 1.5.2
 License: Ruby or GPL+
 Group: Development/Libraries
 Requires: ruby-enterprise >= 1.8
